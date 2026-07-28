@@ -1,0 +1,2 @@
+# Mosquitto log output (runtime-generated, keep the directory via .gitkeep)
+mosquitto/log/*.log
