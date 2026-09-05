@@ -24,6 +24,10 @@ If you rotate it, two things need updating to match, both **manual, outside of w
 1. `SmartHome-Backend`'s `Mqtt:Password` (set via `dotnet user-secrets` or the `Mqtt__Password` env var — see that repo's CLAUDE.md).
 2. Any physical ESP32 devices from `SmartHome-Sketchbook` — their `arduino_secrets.h` (gitignored, local to each dev machine) needs the new password and the device needs reflashing.
 
+## CI
+
+`.github/workflows/ci.yml` runs on every push and pull request: `docker compose config -q` validates the syntax and schema of `docker-compose.yaml`. This does not start the container or test connectivity to the broker, and does not check the contents of `mosquitto.conf`.
+
 ## Known issues / not yet done
 
 - Only the MQTT broker is containerized here — the Backend and its SQLite DB run outside Docker.
